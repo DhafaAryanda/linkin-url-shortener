@@ -48,7 +48,8 @@ export default function Home() {
         process.env.NEXT_PUBLIC_BACKEND_SERVER ||
         "https://fc-short-link.vercel.app";
       const FRONTEND_SERVER =
-        process.env.NEXT_PUBLIC_FRONTEND_SERVER || "http://localhost:3001";
+        process.env.NEXT_PUBLIC_FRONTEND_SERVER ||
+        "https://golinkin.vercel.app";
 
       const response = await fetch(`${BACKEND_SERVER}/api/shorten`, {
         method: "POST",
