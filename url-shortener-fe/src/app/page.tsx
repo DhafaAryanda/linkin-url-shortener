@@ -32,7 +32,7 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Reset states
@@ -70,7 +70,7 @@ export default function Home() {
       } else {
         throw new Error(shortenedURL.message || "Failed to shorten URL");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error("Error shortening URL:", err);
       setError(err.message || "An error occurred while shortening the URL");
     } finally {
@@ -225,7 +225,7 @@ export default function Home() {
               <CheckCircle className="h-6 w-6 text-emerald-600 " />
               <AlertDescription className="text-emerald-800">
                 <div className="space-y-6 w-full">
-                  <p className="font-bold text-xl">Your short link is ready!</p>
+                  <p className="font-bold text-lg">Your short link is ready!</p>
                   <div className="flex items-center space-x-4 p-4 bg-white rounded-xl border-2 border-emerald-100 shadow-sm">
                     <Globe className="h-5 w-5 text-emerald-600 flex-shrink-0" />
                     <code className="flex-1 text-sm text-gray-800 break-all font-mono font-semibold">
