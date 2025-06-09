@@ -149,7 +149,7 @@ export default function Page({
             Redirecting You Now
           </h1>
           <p className="text-gray-600 text-lg mb-6">
-            You'll be redirected in{" "}
+            You&apos;ll be redirected in{" "}
             <span className="font-bold text-emerald-600 text-xl">
               {countdown}
             </span>{" "}
@@ -201,8 +201,8 @@ export default function Page({
 
         <h1 className="text-3xl font-bold text-red-600 mb-4">Link Not Found</h1>
         <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-          The short link you're trying to access doesn't exist, has expired, or
-          may have been removed.
+          The short link you&apos;re trying to access doesn&apos;t exist, has
+          expired, or may have been removed.
         </p>
 
         {/* Error Details */}

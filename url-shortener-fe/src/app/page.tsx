@@ -32,7 +32,9 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (
+    e: React.FormEvent | React.MouseEvent | React.KeyboardEvent
+  ) => {
     e.preventDefault();
 
     // Reset states
@@ -71,9 +73,13 @@ export default function Home() {
       } else {
         throw new Error(shortenedURL.message || "Failed to shorten URL");
       }
-    } catch (err: any) {
-      console.error("Error shortening URL:", err);
-      setError(err.message || "An error occurred while shortening the URL");
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error("Error shortening URL:", err);
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -229,7 +235,7 @@ export default function Home() {
                   <p className="font-bold text-lg">Your short link is ready!</p>
                   <div className="flex items-center space-x-4 p-4 bg-white rounded-xl border-2 border-emerald-100 shadow-sm">
                     <Globe className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <code className="flex-1 text-sm text-gray-800 break-all font-mono font-semibold">
+                    <code className="flex-1 text-xs text-gray-800 break-all font-mono font-semibold">
                       {shortUrl}
                     </code>
                   </div>
